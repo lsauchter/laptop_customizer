@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Features from './Features.js';
 import Summary from './Summary.js';
+import Header from './Header.js';
 
 class App extends Component {
   constructor(props){
@@ -29,8 +30,6 @@ class App extends Component {
   }
 
   updateFeature(feature, newValue) {
-    console.log('updateFeature ran');
-    console.log(feature, newValue);
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -41,11 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing</h1>
-          <h3>Laptops</h3>
-          <h5>Customize your laptop</h5>  
-        </header>      
+        <Header />     
         <main>
             <Features features={this.props.features} selected={this.state.selected} handleUpdate={(feature, newValue) => this.updateFeature(feature, newValue)} />
             <Summary selected={this.state.selected}/>
