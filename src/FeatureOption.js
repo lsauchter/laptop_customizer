@@ -5,8 +5,8 @@ class FeatureOption extends Component {
     render() {
         
         return (
-          <div className="feature" key={this.props.key}>
-          <div className="feature__name">{this.props.key}</div>
+          <div className="feature">
+          <div className="feature__name">{this.props.keyText}</div>
           <ul className="feature__list">
             { this.props.options }
           </ul>
