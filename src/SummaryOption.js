@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import './SummaryOption.css';
+import SummaryOptionItem from './SummaryOptionItem.js';
 
 class SummaryOption extends Component {
     render() {
         const summary = Object.keys(this.props.selected)
-        .map(key => <div className="summary__option" key={key}>
-          <div className="summary__option__label">{key}  </div>
-          <div className="summary__option__value">{this.props.selected[key].name}</div>
-          <div className="summary__option__cost">
-            { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                .format(this.props.selected[key].cost) }
-          </div>
-      </div>)
+        .map(key => <SummaryOptionItem 
+                        key={key}
+                        label={key}
+                        value={this.props.selected[key].name}
+                        cost={this.props.selected[key].cost}/>
+        )
         return (
             <div>{summary}</div>
         )
